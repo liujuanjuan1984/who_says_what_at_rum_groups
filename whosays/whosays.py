@@ -98,7 +98,6 @@ class WhoSays:
             for pubkey in whos_keys[group_id]:
                 info = whos_keys[group_id][pubkey]
                 trxs = rum_origin.api.get_all_contents(senders=[pubkey], start_trx=info["start_trx"])
-                logger.info("get_all_contents: %s", len(trxs))
                 for trx in trxs:
                     params = rum_origin.api.trx_retweet_params(trx, nicknames)
                     if "content" in params:
